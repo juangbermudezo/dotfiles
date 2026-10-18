@@ -6,4 +6,4 @@ term screen-256color
 
 hardstatus on
 hardstatus alwaysfirstline
-hardstatus string '[%n] %w
+hardstatus string '[%n] %w'

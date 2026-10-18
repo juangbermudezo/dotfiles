@@ -1,3 +1,5 @@
+![](https://github.com/juangbermudezo/dotfiles/blob/main/hyprshot.png)
+
 # Bienvenidos
 Este es mi repositorio de configuraciones de escritorio GNU/Linux. Se encuentra en construcción así que ten paciencia, por ahora encuentras algunos archivos de configuración.
 
@@ -26,3 +28,6 @@ enabled=false
 - mtr
 - sudo-rs
 - sshfs
+- kew
+- yt-dlp
+- mpv

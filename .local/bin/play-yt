@@ -1,0 +1,72 @@
+#!/usr/bin/bash
+
+# Mensaje de inicio
+msg='
+██████╗ ██╗      █████╗ ██╗   ██╗    ██╗   ██╗████████╗
+██╔══██╗██║     ██╔══██╗╚██╗ ██╔╝    ╚██╗ ██╔╝╚══██╔══╝
+██████╔╝██║     ███████║ ╚████╔╝      ╚████╔╝    ██║   
+██╔═══╝ ██║     ██╔══██║  ╚██╔╝        ╚██╔╝     ██║   
+██║     ███████╗██║  ██║   ██║          ██║      ██║   
+╚═╝     ╚══════╝╚═╝  ╚═╝   ╚═╝          ╚═╝      ╚═╝   '
+
+help='
+Reproduce y descarga videos de YouTube en calidad low,
+medium y high. Combina la opciones play y down con las
+calidades. Ejemplo: play-low url, down-medium url.
+También es posible reproducir o descargar el audio en
+mp3. Ejemplo: play-audio url, down-audio url.'
+
+# Configuraciones y opciones
+controls='[ q] [󰐎 space] [ m]'
+
+# Script
+while true
+
+do
+	clear
+	echo "$msg"
+	echo "Para salir escribe exit."
+	echo "$help"
+	echo ""
+
+	read -p " : " opcion url
+	case $opcion in
+
+		exit)
+			clear
+			break
+			;;
+		play-low)
+			clear && echo -e "$msg\n$controls\n\n󰹑  Reproduciendo video en 480p\n  $url"
+			mpv --msg-level=all=no --ytdl-format="bestvideo[height<=480]+bestaudio" $url && clear
+			;;
+		play-medium)
+			clear && echo -e "$msg\n$controls\n\n󰹑  Reproduciendo video en 720p\n  $url"
+			mpv --msg-level=all=no --ytdl-format="bestvideo[height<=720]+bestaudio" $url && clear
+			;;
+		play-high)
+			clear && echo -e "$msg\n$controls\n\n󰹑  Reproduciendo video en 1080p\n  $url"
+			mpv --msg-level=all=no --ytdl-format="bestvideo[height<=1080]+bestaudio" $url && clear
+			;;
+		down-low)
+			clear && echo -e "$msg\n\n  Descargando video en 480p"
+			yt-dlp -f "(mp4)[height<=480]+bestaudio" -o "%(title)s.%(ext)s" $url && clear
+			;;
+		down-medium)
+			clear && echo -e "$msg\n\n  Descargando video en 720p"
+			yt-dlp -f "(mp4)[height<=720]+bestaudio" -o "%(title)s.%(ext)s" $url && clear
+			;;
+		down-high)
+			clear && echo -e "$msg\n\n  Descargando video en 1080p"
+			yt-dlp -f "(mp4)[height<=1080]+bestaudio" -o "%(title)s.%(ext)s" $url && clear
+			;;
+		play-audio)
+			clear && echo -e "$msg\n$controls\n\n󰑈  Reproduciendo audio\n  $url"
+			mpv --msg-level=all=no --no-video $url && clear
+			;;
+		down-audio)
+			clear && echo -e "$msg\n\n  Descargando audio en MP3"
+			yt-dlp -x --audio-format mp3 -o '%(title)s' $url && clear
+			;;
+	esac
+done

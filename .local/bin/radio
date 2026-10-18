@@ -1,0 +1,68 @@
+#!/usr/bin/bash
+
+# Mensaje de inicio
+msg='
+██████╗  █████╗ ██████╗ ██╗ ██████╗ 
+██╔══██╗██╔══██╗██╔══██╗██║██╔═══██╗
+██████╔╝███████║██║  ██║██║██║   ██║
+██╔══██╗██╔══██║██║  ██║██║██║   ██║
+██║  ██║██║  ██║██████╔╝██║╚██████╔╝
+╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚═╝ ╚═════╝ '
+
+# Emisoras
+T1='Escuchando a Dios'
+E1=https://r.xnvx.eu/listen/cristo/live
+
+T2='Electronic Radio'
+E2=https://r.xnvx.eu/listen/electronic/live.mp3
+
+T3='Rock FM'
+E3=http://solid33.streamupsolutions.com:32010/autodj
+
+T4='texto-plano'
+E4=http://texto-plano.xyz:8000/live.ogg
+
+# Configuraciones
+play='mpv --msg-level=all=no'
+controls='[ q] [󰐎 space] [ m]'
+
+# Script
+while true
+
+do
+	clear
+	echo "$msg"
+	echo "Para salir escribe exit."
+	echo ""
+	echo "  Emisoras:"
+	echo "1. $T1"
+	echo "2. $T2"
+	echo "3. $T3"
+	echo "4. $T4"
+	echo ""
+
+	read -p " : " radio
+	case $radio in
+
+		exit)
+			clear
+			break
+			;;
+		1)
+			clear && echo -e "$msg\n$controls\n\n: $T1\n: $E1"
+			$play $E1 && clear
+			;;
+		2)
+			clear && echo -e "$msg\n$controls\n\n: $T2\n  $E2"
+			$play $E2 && clear
+			;;
+		3)
+			clear && echo -e "$msg\n$controls\n\n: $T3\n  $E3"
+			$play $E3 && clear
+			;;
+		4)
+			clear && echo -e "$msg\n$controls\n\n: $T4\n  $E4"
+			$play $E4 && clear
+			;;
+	esac
+done

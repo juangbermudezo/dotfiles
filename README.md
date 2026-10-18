@@ -21,8 +21,8 @@ enabled=false
 ## Paquetes
 - screen
 - tmux
-- tmate
+- upterm
 - duf
 - mtr
 - sudo-rs
-- duf
+- 

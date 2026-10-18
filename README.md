@@ -25,4 +25,4 @@ enabled=false
 - duf
 - mtr
 - sudo-rs
-- 
+- sshfs

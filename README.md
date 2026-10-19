@@ -31,3 +31,5 @@ enabled=false
 - kew
 - yt-dlp
 - mpv
+- w3m
+- amfora

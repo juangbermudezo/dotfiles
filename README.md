@@ -21,15 +21,16 @@ Este es mi repositorio de configuraciones de escritorio GNU/Linux. Se encuentra 
 enabled=false
 ```
 ## Paquetes
+- amfora
+- autossh
+- duf
+- kew
+- mpv
+- mtr
 - screen
+- sshfs
+- sudo-rs
 - tmux
 - upterm
-- duf
-- mtr
-- sudo-rs
-- sshfs
-- kew
-- yt-dlp
-- mpv
 - w3m
-- amfora
+- yt-dlp
